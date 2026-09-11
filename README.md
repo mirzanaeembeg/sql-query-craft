@@ -24,7 +24,7 @@ Welcome to my comprehensive SQL learning journey! This repository showcases my S
 
 ### LeetCode SQL 50 & DataLemur Badge
 
-<iframe src="https://github.com/mirzanaeembeg/sql-query-craft/blob/main/LinkedIn_SQL_Post.png" width="100%" height="600px"></iframe>
+![ScreenShoot](LinkedIn_SQL_Post.png)
 
 
 ---
