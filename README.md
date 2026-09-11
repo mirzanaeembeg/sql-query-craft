@@ -22,11 +22,10 @@ Welcome to my comprehensive SQL learning journey! This repository showcases my S
 
 ---
 
-### LinkedIn SQL Post
+### LeetCode SQL 50 & DataLemur Badge
 
-<iframe src="https://github.com/mirzanaeembeg/sql-query-craft/blob/main/LinkedIn_SQL_Post.pdf" width="100%" height="600px"></iframe>
+<iframe src="https://github.com/mirzanaeembeg/sql-query-craft/blob/main/LinkedIn_SQL_Post.png" width="100%" height="600px"></iframe>
 
-[📥 Download LinkedIn SQL Post](LinkedIn_SQL_Post.pdf)
 
 ---
 
