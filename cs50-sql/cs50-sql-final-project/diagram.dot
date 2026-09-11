@@ -1,0 +1,117 @@
+digraph HealthNetworkER {
+	graph [bgcolor=white fontname=Helvetica nodesep=0.5 pad=0.4 rankdir=LR ranksep=0.9 splines=spline]
+	node [fontname=Helvetica shape=plaintext]
+	edge [arrowhead=none arrowtail=none color="#555555" fontname=Helvetica fontsize=10]
+	hospitals [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>hospitals</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">address</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">phone</TD></TR>
+    </TABLE>
+    >]
+	research_centers [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>research_centers</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">address</TD></TR>
+    </TABLE>
+    >]
+	pharma_companies [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>pharma_companies</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">address</TD></TR>
+    </TABLE>
+    >]
+	pharmacies [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>pharmacies</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">address</TD></TR>
+    </TABLE>
+    >]
+	doctors [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>doctors</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">hospital_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">first_name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">last_name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">specialty</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">email</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">chamber_address</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">chamber_hours</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">registered</TD></TR>
+    </TABLE>
+    >]
+	patients [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>patients</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">first_name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">last_name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">email</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">date_of_birth</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">registered</TD></TR>
+    </TABLE>
+    >]
+	medicines [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>medicines</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">pharma_company_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">name</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">description</TD></TR>
+    </TABLE>
+    >]
+	follows [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>follows</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">follower_type</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">follower_id</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">followee_type</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">followee_id</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">followed_at</TD></TR>
+    </TABLE>
+    >]
+	messages [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>messages</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">patient_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">doctor_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">sender</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">parent_message_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">content</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">sent_at</TD></TR>
+    </TABLE>
+    >]
+	posts [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>posts</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">doctor_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">title</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">content</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">posted_at</TD></TR>
+    </TABLE>
+    >]
+	prescriptions [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>prescriptions</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">doctor_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">patient_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">message_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">issued_at</TD></TR>
+    </TABLE>
+    >]
+	prescription_items [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>prescription_items</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">prescription_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">medicine_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">dosage</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">quantity</TD></TR>
+    </TABLE>
+    >]
+	medicine_samples [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>medicine_samples</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">pharma_company_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">doctor_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">medicine_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">quantity</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">provided_at</TD></TR>
+    </TABLE>
+    >]
+	pharmacy_supplies [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>pharmacy_supplies</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">pharma_company_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">pharmacy_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">medicine_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">quantity</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">supplied_at</TD></TR>
+    </TABLE>
+    >]
+	medicine_collections [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2b5876"><FONT COLOR="white"><B>medicine_collections</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#d7e6f5"><u>id</u> (PK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">prescription_item_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">pharmacy_id (FK)</TD></TR><TR><TD ALIGN="LEFT" BGCOLOR="#eaf1f8">collected_at</TD></TR>
+    </TABLE>
+    >]
+	hospitals -> doctors [label="1 to 0..N"]
+	pharma_companies -> medicines [label="1 to 1..N"]
+	patients -> follows [label="1 to 0..N (as follower)"]
+	doctors -> follows [label="1 to 0..N (as follower/followee)"]
+	pharma_companies -> follows [label="1 to 0..N (as follower)"]
+	research_centers -> follows [label="1 to 0..N (as followee)"]
+	patients -> messages [label="1 to 0..N"]
+	doctors -> messages [label="1 to 0..N"]
+	doctors -> posts [label="1 to 0..N"]
+	doctors -> prescriptions [label="1 to 0..N"]
+	patients -> prescriptions [label="1 to 0..N"]
+	messages -> prescriptions [label="0..1 to 0..N"]
+	prescriptions -> prescription_items [label="1 to 1..N"]
+	medicines -> prescription_items [label="1 to 0..N"]
+	pharma_companies -> medicine_samples [label="1 to 0..N"]
+	doctors -> medicine_samples [label="1 to 0..N"]
+	medicines -> medicine_samples [label="1 to 0..N"]
+	pharma_companies -> pharmacy_supplies [label="1 to 0..N"]
+	pharmacies -> pharmacy_supplies [label="1 to 0..N"]
+	medicines -> pharmacy_supplies [label="1 to 0..N"]
+	prescription_items -> medicine_collections [label="1 to 0..N"]
+	pharmacies -> medicine_collections [label="1 to 0..N"]
+}
